@@ -85,15 +85,11 @@ function refreshPage() {
 function clearInputs() {
     description.value = '';
     amount.value = '';
-    transactionType = "";
+    transactionId.value = "";
+    ttype.value = "Select";
 }
-
 function addTransactionDetailsToTable(selectedValue = "all") {
-    // 1. get selected value from update-entry
-    // 2. add transaction to table
-    //     2.1 if all, add all items to table
-    //     2.2 if Income, add only income details to table
-    //     2.3 else Expense, add only expense details to table
+  
     if (selectedValue === "all") {
         addAllTransactionsToTable();
     } else if (selectedValue === "income") {
@@ -183,20 +179,6 @@ function createTransactionEntry(entry = {}) {
 
 
 function handleEditClick(e) {
-    // for (let i = 0; i < data.length; i++) {
-    //     if (data[i].id == e.target.dataset.id) {
-    //         ttype.value = data[i].transactionType;
-    //         description.value = data[i].description;
-    //         amount.value = data[i].amount.toString();
-    //         transactionId.value = data[i].id
-    //     }
-    // }
-    // let element = data.find((d) => {
-    //     if (d.id === Number(e.target.dataset.id)) {
-    //         return true;
-    //     }
-    //     return false;
-    // })
     let element = data.find((d) => d.id === Number(e.target.dataset.id))
     ttype.value = element.transactionType;
     description.value = element.description;
